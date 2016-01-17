@@ -36,11 +36,12 @@
     },
 
     getAllDocs: function(req, res) {
-      docFunc.getAllDocuments(req.body.limit).then(function(result) {
-        res.status(result.status).json(result);
-      }).catch(function(err) {
-        routeMethods.dberrors(res, 'getting docs', err); // db error
-      });
+      docFunc.getAllDocuments(req.body.limit)
+        .then(function(result) {
+          res.status(result.status).json(result);
+        }).catch(function(err) {
+          routeMethods.dberrors(res, 'getting docs', err); // db error
+        });
     },
 
     deleteDoc: function(req, res) {
